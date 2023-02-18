@@ -367,7 +367,7 @@
             <param name="icon" value="special://skin/extras/icons/jellyseerr.png"/>
             <param name="visible" value="String.IsEmpty(ListItem.DateAdded)"/>
             <onclick>
-                runscript(plugin.program.jellyseerr-requester,$INFO[Container(99950).ListItem.Property(base_dbtype)],$INFO[Container(99950).ListItem.Property(tmdb_id)],$INFO[Container(99950).ListItem.Title],$INFO[Container(99950).ListItem.Genre],$INFO[ListItem.DateAdded])
+                runscript(plugin.program.jellyseerr-requester,$INFO[Container(99950).ListItem.Property(base_dbtype)],$INFO[Container(99950).ListItem.Property(tmdb_id)],$INFO[Container(99950).ListItem.Title],$INFO[Container(99950).ListItem.Genre],$INFO[ListItem.DateAdded],$INFO[ListItem.Country])
             </onclick>
             <include content="OSD_Button_HintLabel">
                 <param name="label">Request</param>
