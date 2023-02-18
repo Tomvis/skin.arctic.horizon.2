@@ -3,13 +3,13 @@
 
     <include name="Furniture_Topbar_Group">
         <control type="group">
-            <nested />
+            <nested/>
             <include>Dimension_Topbar</include>
         </control>
     </include>
     <include name="Furniture_Bottombar_Group">
         <control type="group">
-            <nested />
+            <nested/>
             <include>Dimension_Bottombar</include>
         </control>
     </include>
@@ -20,19 +20,19 @@
     </include>
 
     <include name="Furniture_Top_Left">
-        <param name="label" default="$VAR[Label_Header_Main]" />
+        <param name="label" default="$VAR[Label_Header_Main]"/>
         <param name="enabled">!Skin.HasSetting(Furniture.DisableLeftHeader)</param>
         <param name="minimal">Skin.HasSetting(Furniture.UseMinimalClock)</param>
         <definition>
             <include content="Furniture_Topbar_Group" condition="$PARAM[enabled]">
                 <include content="Furniture_Gutters">
-                     <include content="Furniture_MainLabel" condition="!$PARAM[minimal]">
-                        <param name="id" value="$PARAM[id]" />
+                    <include content="Furniture_MainLabel" condition="!$PARAM[minimal]">
+                        <param name="id" value="$PARAM[id]"/>
                         <aligny>center</aligny>
                         <label>$PARAM[label]</label>
                     </include>
                     <include content="Furniture_MidiLabel" condition="$PARAM[minimal]">
-                        <param name="id" value="$PARAM[id]" />
+                        <param name="id" value="$PARAM[id]"/>
                         <label>$PARAM[label]</label>
                     </include>
                 </include>
@@ -53,29 +53,37 @@
                     <include content="Furniture_Gutters">
                         <visible>!$EXP[Exp_HasFurnitureNowPlaying]</visible>
                         <include content="Furniture_Clock_Small" condition="$PARAM[minimal]">
-                            <param name="align" value="right" />
+                            <param name="align" value="right"/>
                             <right>0</right>
                         </include>
                         <include content="Object_MenuButton" condition="!$PARAM[minimal]">
-                            <param name="icon" value="$PARAM[icon]" />
-                            <param name="profileimage" value="$EXP[Exp_HasProfileImage]" />
+                            <param name="icon" value="$PARAM[icon]"/>
+                            <param name="profileimage" value="$EXP[Exp_HasProfileImage]"/>
                             <right>0</right>
                         </include>
+                        <include content="Furniture_MiniLabel">
+                                <label>$INFO[System.ProfileName]</label>
+                                <top>74</top>
+<!--                                <font>font_mini</font>-->
+                                <align>right</align>
+                                <right>80</right>
+                        </include>
                         <include content="Furniture_Clock_Big" condition="!$PARAM[minimal]">
-                            <param name="align" value="right" />
+                            <param name="align" value="right"/>
                             <right>80</right>
                         </include>
                     </include>
                 </include>
                 <include content="Furniture_Busy" condition="$PARAM[enabled]">
-                    <param name="hasspinner" value="false" />
-                    <param name="hasprogress" value="true" />
-                    <param name="progress" value="Player.Progress" />
-                    <param name="progress_id" value="933" />
-                    <param name="hastime" value="true" />
-                    <param name="mainlabel" value="$VAR[Label_NowPlayingTitle]" />
-                    <param name="minilabel" value="$VAR[Label_NowPlayingSubLabel,, • ]$INFO[Player.Time]$INFO[Player.Duration, / ,]" />
-                    <param name="icon" value="$VAR[Image_NowPlaying_PlayPause]" />
+                    <param name="hasspinner" value="false"/>
+                    <param name="hasprogress" value="true"/>
+                    <param name="progress" value="Player.Progress"/>
+                    <param name="progress_id" value="933"/>
+                    <param name="hastime" value="true"/>
+                    <param name="mainlabel" value="$VAR[Label_NowPlayingTitle]"/>
+                    <param name="minilabel"
+                           value="$VAR[Label_NowPlayingSubLabel,, • ]$INFO[Player.Time]$INFO[Player.Duration, / ,]"/>
+                    <param name="icon" value="$VAR[Image_NowPlaying_PlayPause]"/>
                     <visible>$EXP[Exp_HasFurnitureNowPlaying]</visible>
                     <control type="progress" id="933">
                         <height>1</height>
@@ -97,15 +105,15 @@
         <param name="hasclock">true</param>
         <definition>
             <include content="Furniture_Topbar_Group">
-                <nested />
+                <nested/>
                 <include content="Furniture_Gutters">
                     <include content="Object_MenuButton">
-                        <param name="icon" value="$PARAM[icon]" />
-                        <param name="profileimage" value="$EXP[Exp_HasProfileImage]" />
+                        <param name="icon" value="$PARAM[icon]"/>
+                        <param name="profileimage" value="$EXP[Exp_HasProfileImage]"/>
                         <right>0</right>
                     </include>
                     <include content="Furniture_Clock_Big" condition="$PARAM[hasclock]">
-                        <param name="align" value="right" />
+                        <param name="align" value="right"/>
                         <right>80</right>
                     </include>
                 </include>
@@ -130,7 +138,7 @@
             <include content="Furniture_Bottombar_Group" condition="$PARAM[enabled]">
                 <include content="Furniture_Gutters">
                     <include content="Info_Codecs">
-                        <param name="align" value="left" />
+                        <param name="align" value="left"/>
                     </include>
                 </include>
             </include>
@@ -146,13 +154,13 @@
         <control type="group">
             <top>view_gutter</top>
             <bottom>view_gutter</bottom>
-            <nested />
+            <nested/>
         </control>
     </include>
 
     <include name="Furniture_Clock_Small">
         <control type="label">
-            <nested />
+            <nested/>
             <align>$PARAM[align]</align>
             <font>font_main</font>
             <textcolor>main_fg_100</textcolor>
@@ -164,7 +172,7 @@
     <include name="Furniture_Clock_Big">
         <control type="group">
             <width>600</width>
-            <nested />
+            <nested/>
             <control type="grouplist">
                 <height>50%</height>
                 <orientation>horizontal</orientation>
@@ -175,7 +183,9 @@
                     <height>40</height>
                     <width>40</width>
                     <aspectratio>keep</aspectratio>
-                    <texture colordiffuse="main_fg_100">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+                    <texture colordiffuse="main_fg_100">
+                        $INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]
+                    </texture>
                     <visible>Weather.IsFetched</visible>
                     <visible>Skin.String(WeatherClock,Large)</visible>
                 </control>
@@ -212,7 +222,9 @@
                     <itemgap>10</itemgap>
                     <visible>$EXP[Exp_HasPagesItems]</visible>
                     <include content="Furniture_MiniLabel">
-                        <label>$INFO[Container.CurrentPage,, $LOCALIZE[1443] ]$INFO[Container.NumPages,, $LOCALIZE[31110]]</label>
+                        <label>$INFO[Container.CurrentPage,, $LOCALIZE[1443] ]$INFO[Container.NumPages,,
+                            $LOCALIZE[31110]]
+                        </label>
                         <align>$PARAM[align]</align>
                         <width>auto</width>
                     </include>
@@ -239,7 +251,9 @@
                         <height>40</height>
                         <width>40</width>
                         <aspectratio>keep</aspectratio>
-                        <texture colordiffuse="main_fg_100">$INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]</texture>
+                        <texture colordiffuse="main_fg_100">
+                            $INFO[Weather.FanartCode,resource://resource.images.weathericons.white/,.png]
+                        </texture>
                         <visible>Weather.IsFetched</visible>
                         <visible>Skin.String(WeatherClock,Small)</visible>
                     </control>
@@ -271,7 +285,7 @@
         <control type="label" id="$PARAM[id]">
             <font>font_head_black</font>
             <textcolor>main_fg_100</textcolor>
-            <nested />
+            <nested/>
         </control>
     </include>
 
@@ -279,13 +293,13 @@
         <control type="label" id="$PARAM[id]">
             <font>font_midi_black</font>
             <textcolor>main_fg_100</textcolor>
-            <nested />
+            <nested/>
         </control>
     </include>
 
     <include name="Furniture_MenuLabel">
         <control type="label" id="$PARAM[id]">
-            <nested />
+            <nested/>
             <font>font_main_black</font>
             <textcolor>main_fg_100</textcolor>
         </control>
@@ -293,45 +307,45 @@
 
     <include name="Furniture_MiniLabel">
         <control type="label" id="$PARAM[id]">
-            <nested />
+            <nested/>
             <font>font_mini</font>
             <textcolor>main_fg_70</textcolor>
         </control>
     </include>
 
     <include name="Furniture_Busy">
-        <param name="mainlabel" default="$LOCALIZE[20186]" />
-        <param name="minilabel" default="$LOCALIZE[31023]..." />
-        <param name="hasspinner" default="true" />
-        <param name="hasprogress" default="false" />
-        <param name="backing" default="true" />
-        <param name="colordiffuse" default="dialog_fg" />
-        <param name="groupinclude" default="Furniture_Topbar_Group" />
-        <param name="haslabel" default="true" />
-        <param name="hastime" default="false" />
-        <param name="texture" default="dialog/loading-back.png" />
-        <param name="size" default="104" />
+        <param name="mainlabel" default="$LOCALIZE[20186]"/>
+        <param name="minilabel" default="$LOCALIZE[31023]..."/>
+        <param name="hasspinner" default="true"/>
+        <param name="hasprogress" default="false"/>
+        <param name="backing" default="true"/>
+        <param name="colordiffuse" default="dialog_fg"/>
+        <param name="groupinclude" default="Furniture_Topbar_Group"/>
+        <param name="haslabel" default="true"/>
+        <param name="hastime" default="false"/>
+        <param name="texture" default="dialog/loading-back.png"/>
+        <param name="size" default="104"/>
         <definition>
             <include content="$PARAM[groupinclude]">
-                <nested />
+                <nested/>
                 <include content="Furniture_Gutters">
                     <control type="group">
                         <width>60</width>
                         <right>0</right>
                         <include content="Object_MenuButton" condition="$PARAM[backing]">
-                            <param name="icon" value="special://skin/extras/icons/_none.png" />
+                            <param name="icon" value="special://skin/extras/icons/_none.png"/>
                         </include>
                         <include content="Object_BusySpinner">
-                            <param name="haslabel" value="false" />
-                            <param name="hasspinner" value="$PARAM[hasspinner]" />
-                            <param name="hasprogress" value="$PARAM[hasprogress]" />
-                            <param name="colordiffuse" value="$PARAM[colordiffuse]" />
-                            <param name="texture" value="$PARAM[texture]" />
-                            <param name="size" value="$PARAM[size]" />
-                            <param name="progress" value="$PARAM[progress]" />
-                            <param name="progress_id" value="$PARAM[progress_id]" />
-                            <param name="icon" value="$PARAM[icon]" />
-                            <param name="spinprogress" value="$PARAM[spinprogress]" />
+                            <param name="haslabel" value="false"/>
+                            <param name="hasspinner" value="$PARAM[hasspinner]"/>
+                            <param name="hasprogress" value="$PARAM[hasprogress]"/>
+                            <param name="colordiffuse" value="$PARAM[colordiffuse]"/>
+                            <param name="texture" value="$PARAM[texture]"/>
+                            <param name="size" value="$PARAM[size]"/>
+                            <param name="progress" value="$PARAM[progress]"/>
+                            <param name="progress_id" value="$PARAM[progress_id]"/>
+                            <param name="icon" value="$PARAM[icon]"/>
+                            <param name="spinprogress" value="$PARAM[spinprogress]"/>
                         </include>
                     </control>
                     <control type="group">
@@ -341,7 +355,7 @@
                             <align>right</align>
                             <itemgap>10</itemgap>
                             <include content="Furniture_MenuLabel" condition="$PARAM[haslabel]">
-                                <param name="id" value="$PARAM[mainlabel_id]" />
+                                <param name="id" value="$PARAM[mainlabel_id]"/>
                                 <label>$PARAM[mainlabel]</label>
                                 <width max="480">auto</width>
                                 <height>50%</height>
@@ -355,7 +369,7 @@
                             </include>
                         </control>
                         <include content="Furniture_MiniLabel" condition="$PARAM[haslabel]">
-                            <param name="id" value="$PARAM[minilabel_id]" />
+                            <param name="id" value="$PARAM[minilabel_id]"/>
                             <label>$PARAM[minilabel]</label>
                             <align>right</align>
                             <height>50%</height>

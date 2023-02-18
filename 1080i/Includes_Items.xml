@@ -357,7 +357,6 @@
                 <param name="label">$LOCALIZE[31002]</param>
             </include>
         </include>
-        <!--tom jellyseerr request button-->
         <include content="OSD_Button">
             <param name="vertical">true</param>
             <param name="id" value="5008"/>
@@ -373,7 +372,21 @@
                 <param name="label">Request</param>
             </include>
         </include>
-        <!--tom jellyseerr request button - end-->
+        <include content="OSD_Button">
+            <param name="vertical">true</param>
+            <param name="id" value="5009"/>
+            <param name="groupid" value="5109"/>
+            <param name="sliceid" value="5209"/>
+            <param name="label" value="Watchlist"/>
+            <param name="icon" value="special://skin/extras/icons/watchlist.png"/>
+            <param name="visible" value="!String.IsEmpty(ListItem.DateAdded)"/>
+<!--            <onclick>-->
+<!--                runscript(plugin.program.jellyseerr-requester,$INFO[Container(99950).ListItem.Property(base_dbtype)],$INFO[Container(99950).ListItem.Property(tmdb_id)],$INFO[Container(99950).ListItem.Title],$INFO[Container(99950).ListItem.Genre],$INFO[ListItem.DateAdded],$INFO[ListItem.Country])-->
+<!--            </onclick>-->
+            <include content="OSD_Button_HintLabel">
+                <param name="label">Watchlist</param>
+            </include>
+        </include>
     </include>
 
     <include name="Items_DialogMusicInfo_MenuBar">
