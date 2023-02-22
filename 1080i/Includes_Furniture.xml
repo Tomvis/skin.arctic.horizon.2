@@ -313,6 +313,15 @@
         </control>
     </include>
 
+    <include name="Furniture_ProfileNameLabel">
+        <control type="label" id="$PARAM[id]">
+            <nested/>
+            <font>font_mini</font>
+            <textcolor>main_fg_70</textcolor>
+            <style></style>
+        </control>
+    </include>
+
     <include name="Furniture_Busy">
         <param name="mainlabel" default="$LOCALIZE[20186]"/>
         <param name="minilabel" default="$LOCALIZE[31023]..."/>
